@@ -81,8 +81,12 @@ Mon_Solid:	; Routine 2
 		beq.w	loc_A25C
 		tst.w	obVelY(a1)
 		bmi.s	loc_A20A
+
+		; Allow Sonic to roll or spindash next to a monitor
 		cmpi.b	#id_Roll,obAnim(a1) ; is Sonic rolling?
 		beq.s	loc_A25C	; if yes, branch
+		cmpi.b	#id_Spindash,obAnim(a1)
+		beq.s	loc_A25C
 
 loc_A20A:
 		tst.w	d1

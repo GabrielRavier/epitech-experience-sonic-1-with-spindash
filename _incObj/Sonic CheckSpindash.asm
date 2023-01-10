@@ -39,6 +39,7 @@ return_1AC8C:
 
 ; loc_1AC8E:
 Sonic_UpdateSpindash:
+	move.b  #id_Spindash,obAnim(a0)	; Sonic might get his animation screwed up, for example when next to a monitor, so make sure it's always set to spindashing
 	move.b	(v_jpadhold2).w,d0
 	btst	#1,d0
 	bne.w	Sonic_ChargingSpindash

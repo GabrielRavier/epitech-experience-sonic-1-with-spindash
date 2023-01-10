@@ -167,6 +167,8 @@ React_Monitor:
 React_Enemy:
 		tst.b	(v_invinc).w	; is Sonic invincible?
 		bne.s	.donthurtsonic	; if yes, branch
+		cmpi.b	#id_Spindash,obAnim(a0)	; is sonic in a spindash?
+		beq.w	.donthurtsonic
 		cmpi.b	#id_Roll,obAnim(a0) ; is Sonic rolling/jumping?
 		bne.w	React_ChkHurt	; if not, branch
 
@@ -289,6 +291,7 @@ HurtSonic:
 		neg.w	obVelX(a0)	; if Sonic is right of the object, reverse
 
 .isleft:
+		move.b	#0,spindash_flag(a0)	; If we don't reset Sonic's spindash when he gets hurt, it'll trigger when he touches the ground again
 		move.w	#0,obInertia(a0)
 		move.b	#id_Hurt,obAnim(a0)
 		move.w	#120,$30(a0)	; set temp invincible time to 2 seconds
