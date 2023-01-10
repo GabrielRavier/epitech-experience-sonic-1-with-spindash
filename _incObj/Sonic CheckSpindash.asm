@@ -148,5 +148,6 @@ Obj01_Spindash_ResetScr:
 loc_1AD8C:
 	bsr.w	Sonic_LevelBound
 	bsr.w	Sonic_AnglePos
+	move.w	#$60,(v_lookshift).w	; If we don't reset the lookup/lookdown position, the camera will be stuck until we stop charging
 	rts
 ; End of subroutine Sonic_UpdateSpindash
