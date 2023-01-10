@@ -13,8 +13,8 @@ Sonic_CheckSpindash:
         move.b  (v_jpadpress2).w,d0
         andi.b  #$70,d0
         beq.w   return_1AC8C
-        move.b  #9,obAnim(a0)
-        move.w  #$E0,d0
+        move.b  #id_Roll,obAnim(a0)
+        move.w  #$BE,d0	; Normal spin sound
         jsr     (PlaySound_Special).l
         addq.l  #4,sp
         move.b  #1,spindash_flag(a0)
@@ -88,7 +88,7 @@ Sonic_UpdateSpindash:
 +
 	bset	#2,status(a0)
 	move.b	#0,($FFFFD11C).w
-	move.w	#$BC,d0	; spindash zoom sound
+	move.w	#$BE,d0	; normal spin sound
 	jsr	(PlaySound_Special).l
 	bra.s	Obj01_Spindash_ResetScr
 ; ===========================================================================
@@ -128,9 +128,9 @@ Sonic_ChargingSpindash:			; If still charging the dash...
 	move.b	(v_jpadpress2).w,d0
 	andi.b	#$70,d0
 	beq.w	Obj01_Spindash_ResetScr
-	move.w	#$900,obAnim(a0)
-	move.w	#$E0,d0
-	jsr	(PlaySound).l
+;	move.w	#$900,obAnim(a0)
+	move.w	#$BE,d0	; Normal spin sound
+	jsr	(PlaySound_Special).l
 	addi.w	#$200,$3A(a0)
 	cmpi.w	#$800,$3A(a0)
 	blo.s	Obj01_Spindash_ResetScr
