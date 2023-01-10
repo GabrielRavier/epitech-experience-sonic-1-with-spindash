@@ -7055,6 +7055,7 @@ Sonic_MdNormal:
 ; ===========================================================================
 
 Sonic_MdJump:
+		clr.b	spindash_flag(a0)
 		bsr.w	Sonic_JumpHeight
 		bsr.w	Sonic_JumpDirection
 		bsr.w	Sonic_LevelBound
@@ -7081,6 +7082,7 @@ Sonic_MdRoll:
 ; ===========================================================================
 
 Sonic_MdJump2:
+		clr.b	spindash_flag(a0)
 		bsr.w	Sonic_JumpHeight
 		bsr.w	Sonic_JumpDirection
 		bsr.w	Sonic_LevelBound
