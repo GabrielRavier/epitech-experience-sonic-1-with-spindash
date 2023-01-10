@@ -350,3 +350,5 @@ v_creditsnum	= ramaddr ( $FFFFFFF4 )	; credits index number (2 bytes)
 v_megadrive	= ramaddr ( $FFFFFFF8 )	; Megadrive machine type
 f_debugmode	= ramaddr ( $FFFFFFFA )	; debug mode flag (sometimes 2 bytes)
 v_init		= ramaddr ( $FFFFFFFC )	; 'init' text string (4 bytes)
+
+spindash_flag      = $39

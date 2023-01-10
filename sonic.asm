@@ -7042,6 +7042,7 @@ MusicList2:
 ; ---------------------------------------------------------------------------
 
 Sonic_MdNormal:
+		bsr.w	Sonic_CheckSpindash
 		bsr.w	Sonic_Jump
 		bsr.w	Sonic_SlopeResist
 		bsr.w	Sonic_Move
@@ -7096,6 +7097,7 @@ loc_12EA6:
 		include	"_incObj/Sonic Move.asm"
 		include	"_incObj/Sonic RollSpeed.asm"
 		include	"_incObj/Sonic JumpDirection.asm"
+		include "_incObj/Sonic CheckSpindash.asm"
 
 ; ===========================================================================
 ; ---------------------------------------------------------------------------
